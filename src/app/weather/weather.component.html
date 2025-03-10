@@ -1,0 +1,21 @@
+<div class="weather-container">
+    <h1>Weather Application</h1>
+
+    <div class="input-container">
+        <input type="text" [(ngModel)]="city" placeholder="Enter city name" />
+        <button (click)="getWeather()">Get Weather</button>
+    </div>
+
+    <div *ngIf="weatherData">
+        <h2>{{ weatherData.location.name }}, {{ weatherData.location.country }}</h2>
+        <p>{{ weatherData.current.condition.text }}</p>
+        <h3>{{ weatherData.current.temp_c }} °C</h3>
+        <p>Humidity: {{ weatherData.current.humidity }}%</p>
+        <p>Wind Speed: {{ weatherData.current.wind_kph }} km/h</p>
+    </div>
+
+
+    <div *ngIf="errorMessage" class="error-message">
+        <p>{{ errorMessage }}</p>
+    </div>
+</div>
